@@ -1,0 +1,115 @@
+# Recommendations keyed by deficiency then severity.
+# No application rates. Every entry ends with the extension-officer disclaimer
+# when src/recommend.py formats the text.
+
+disclaimer: "Consult your local agriculture extension officer or do a soil test before applying fertilizer."
+
+Healthy:
+  None:
+    symptoms: "The leaf does not show a clear nutrient-deficiency pattern."
+    sources:
+      - "No corrective fertilizer is suggested from the leaf image alone."
+    advice: "Keep the current feeding and watering routine, watch new growth, and use a soil test if later leaves change colour. Do not add fertilizer just because a model was run."
+
+Nitrogen:
+  Mild:
+    symptoms: "Older leaves may look slightly pale or uniformly yellow-green, with growth that is a little slower than neighbouring plants."
+    sources:
+      - "Urea"
+      - "Compost"
+      - "Well-rotted farmyard manure"
+    advice: "Improve soil organic matter and consider a nitrogen source if a soil test or local guidance agrees. Split any application over time and avoid heavy watering that washes nitrogen below the roots."
+  Moderate:
+    symptoms: "Older leaves are generally yellow, and the canopy looks thin or stunted compared with healthy plants."
+    sources:
+      - "Urea"
+      - "Compost"
+      - "Well-rotted farmyard manure"
+    advice: "Confirm nitrogen shortage with a soil test, then apply an approved nitrogen source following local extension advice. Combine it with compost or manure so the response is not only from a quick-release fertilizer. Recheck new leaves after several weeks."
+  Severe:
+    symptoms: "Strong uniform yellowing of older leaves, small pale new growth, and clearly stunted plants."
+    sources:
+      - "Urea"
+      - "Compost"
+      - "Well-rotted farmyard manure"
+    advice: "Treat this as urgent only after a soil test or an extension visit, because waterlogging and root damage can look similar. Apply a nitrogen source at a locally recommended rate, correct drainage, and add organic matter. Recheck the crop before any further application."
+
+Phosphorus:
+  Mild:
+    symptoms: "Leaves may be darker green than normal, with a slight purple or bronze tint on older leaves and slower early growth."
+    sources:
+      - "Single superphosphate (SSP)"
+      - "Bone meal"
+    advice: "Check soil phosphorus and pH before adding fertilizer. Cold or very wet soil can hide phosphorus from roots even when some is present. If a test shows a shortage, use SSP or bone meal as local guidance allows."
+  Moderate:
+    symptoms: "Older leaves show a clearer purple or reddish tint, and plants are compact with weak root growth."
+    sources:
+      - "Single superphosphate (SSP)"
+      - "Bone meal"
+    advice: "Use a soil test to confirm the shortage. Where phosphorus is low, apply SSP or bone meal in the root zone following extension advice, and avoid mixing it into a routine that already supplies enough phosphorus."
+  Severe:
+    symptoms: "Pronounced purple or bronze older leaves, very poor vigour, and delayed maturity."
+    sources:
+      - "Single superphosphate (SSP)"
+      - "Bone meal"
+    advice: "Get a soil test before treating. A severe-looking purple leaf can also come from cold stress. If phosphorus is deficient, apply SSP or bone meal at the locally advised rate and improve root-zone conditions. Do not repeat the application until the crop is reassessed."
+
+Potassium:
+  Mild:
+    symptoms: "Leaf edges of older leaves start to yellow or show small scorched spots, while the centre stays greener."
+    sources:
+      - "Muriate of potash (potassium chloride)"
+      - "Wood ash, used cautiously because it can raise soil pH"
+    advice: "Confirm potassium with a soil test. If it is low, use muriate of potash as local advice allows. Wood ash is an alternative only in small amounts and only when the soil is not already alkaline."
+  Moderate:
+    symptoms: "Older leaves have yellowing and browning along the margins, and stems or petioles may look weak."
+    sources:
+      - "Muriate of potash (potassium chloride)"
+      - "Wood ash, used cautiously because it can raise soil pH"
+    advice: "A soil test should guide any potassium addition. Apply muriate of potash following extension rates, keep watering even, and do not use wood ash on alkaline soils. Look at newer leaves after a few weeks before applying more."
+  Severe:
+    symptoms: "Older leaves are badly scorched at the edges, may curl, and the plant looks weak or prone to lodging."
+    sources:
+      - "Muriate of potash (potassium chloride)"
+      - "Wood ash, used cautiously because it can raise soil pH"
+    advice: "Severe margin scorch still needs a soil test, because drought and salt stress look similar. If potassium is deficient, apply muriate of potash at the locally recommended rate and correct uneven watering. Skip wood ash unless an advisor says the pH can tolerate it."
+
+Iron:
+  Mild:
+    symptoms: "Young leaves show light interveinal yellowing while the veins stay greener. Older leaves often look normal."
+    sources:
+      - "Chelated iron"
+      - "Ferrous sulfate (FeSO4), together with a soil pH check"
+    advice: "Iron shortage is often a high-pH lockup rather than an empty soil. Test pH before adding iron. Where the advisor agrees, use a chelated iron suited to the soil pH, or ferrous sulfate if that is the local recommendation."
+  Moderate:
+    symptoms: "Young leaves are clearly yellow between green veins, and new growth is pale."
+    sources:
+      - "Chelated iron"
+      - "Ferrous sulfate (FeSO4), together with a soil pH check"
+    advice: "Check soil pH and drainage. Alkaline soil and waterlogged roots both reduce iron uptake. Use chelated iron or ferrous sulfate only at a locally advised rate, and correct pH or waterlogging rather than repeating iron indefinitely."
+  Severe:
+    symptoms: "Young leaves are almost white or cream between the veins, and new growth is stunted."
+    sources:
+      - "Chelated iron"
+      - "Ferrous sulfate (FeSO4), together with a soil pH check"
+    advice: "Confirm with an extension officer or a soil test, including pH. Severe interveinal chlorosis of young leaves can be treated with an appropriate iron chelate or ferrous sulfate, but lowering an excessively high pH and fixing waterlogging matters as much as the iron source. Reassess before a second application."
+
+Magnesium:
+  Mild:
+    symptoms: "Older leaves show slight yellowing between the veins, while the leaf edges and veins remain greener."
+    sources:
+      - "Magnesium sulfate (Epsom salt)"
+      - "Dolomite, if the soil also needs liming"
+    advice: "A soil test should separate magnesium shortage from other causes of yellowing. If magnesium is low and pH is already fine, magnesium sulfate is the usual source. Use dolomite only when lime is also needed."
+  Moderate:
+    symptoms: "Older leaves have distinct interveinal yellowing or bronzing, and the pattern moves up the plant as it worsens."
+    sources:
+      - "Magnesium sulfate (Epsom salt)"
+      - "Dolomite, if the soil also needs liming"
+    advice: "Confirm magnesium and pH with a soil test. Apply magnesium sulfate following local advice when pH does not need to rise. Choose dolomite instead when the soil is acidic and an advisor recommends liming as well."
+  Severe:
+    symptoms: "Widespread interveinal chlorosis on older leaves, sometimes with brown patches, and poor overall growth."
+    sources:
+      - "Magnesium sulfate (Epsom salt)"
+      - "Dolomite, if the soil also needs liming"
+    advice: "Do not guess a rate from the image. Get a soil test or extension advice, then use magnesium sulfate or, on acidic soils that also need lime, dolomite. Check that potassium is not being over-applied, because heavy potassium can compete with magnesium. Review the crop before applying more."

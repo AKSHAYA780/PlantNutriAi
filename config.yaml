@@ -1,0 +1,163 @@
+# All paths and constants for PlantNutriAi.
+# Paths are relative to the repository root.
+
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  features_csv: data/processed/features.csv
+  split_csv: outputs/split.csv
+  skipped_csv: outputs/tables/skipped_files.csv
+  outputs_dir: outputs
+  figures_dir: outputs/figures
+  tables_dir: outputs/tables
+  models_dir: outputs/models
+  best_model: outputs/models/best_model.joblib
+  recommendations: knowledge/recommendations.yaml
+  review_content: outputs/review_content.md
+  data_source_flag: outputs/data_source.txt
+  preprocessing_figure: outputs/figures/preprocessing_samples.png
+  severity_figure: outputs/figures/severity_samples.png
+  heatmap_figure: outputs/figures/accuracy_heatmap.png
+  confusion_figure: outputs/figures/confusion_matrix_best.png
+  rf_comparison_figure: outputs/figures/rf_vs_base_paper.png
+  results_all: outputs/tables/results_all_combinations.csv
+  results_best_clf: outputs/tables/results_best_per_classifier.csv
+  per_class_metrics: outputs/tables/per_class_metrics.csv
+  per_crop_metrics: outputs/tables/results_per_crop.csv
+  classification_report: outputs/tables/classification_report_best.txt
+  selected_features: outputs/tables/selected_features.csv
+  best_summary: outputs/tables/best_model_summary.csv
+
+classes:
+  - Healthy
+  - Nitrogen
+  - Phosphorus
+  - Potassium
+  - Iron
+  - Magnesium
+
+# Expected crop folder names. Other crop folders are still loaded and reported.
+crops:
+  - banana
+  - coffee
+
+# Case-insensitive substring aliases. Longer patterns are tried first.
+# Short chemical symbols are matched only as a whole folder token (see exact_aliases).
+class_aliases:
+  Healthy:
+    - healthy
+    - normal
+    - control
+    - no_deficiency
+  Nitrogen:
+    - nitrogen
+    - n_deficiency
+    - n_def
+    - ndeficiency
+    - ndef
+  Phosphorus:
+    - phosphorous
+    - phosphorus
+    - p_deficiency
+    - p_def
+    - pdeficiency
+    - pdef
+  Potassium:
+    - potassium
+    - k_deficiency
+    - k_def
+    - kdeficiency
+    - kdef
+  Iron:
+    - iron
+    - fe_deficiency
+    - fe_def
+    - fedeficiency
+    - fedef
+  Magnesium:
+    - magnesium
+    - mg_deficiency
+    - mg_def
+    - mgdeficiency
+    - mgdef
+
+exact_aliases:
+  n: Nitrogen
+  p: Phosphorus
+  k: Potassium
+  fe: Iron
+  mg: Magnesium
+
+split:
+  test_size: 0.2
+  seed: 42
+
+cv_folds: 5
+
+feature_selection:
+  k: 20
+  selectors:
+    - anova
+    - mutual_info
+    - rf_importance
+    - rfe
+    - none
+
+classifiers:
+  - knn
+  - svm
+  - gaussian_nb
+  - logreg
+  - mlp
+  - random_forest
+  - decision_tree
+  - xgboost
+
+preprocessing:
+  image_size: 256
+  gaussian_ksize: 5
+  median_ksize: 5
+  # OpenCV HSV: H 0-179, S 0-255, V 0-255.
+  hsv_lower: [25, 40, 40]
+  hsv_upper: [95, 255, 255]
+  # Extra tissue colours so yellow, brown, and purple leaves still segment.
+  extra_hsv:
+    - [[12, 30, 30], [40, 255, 255]]
+    - [[5, 25, 20], [22, 220, 200]]
+    - [[125, 25, 30], [175, 255, 255]]
+  morph_kernel: 5
+  min_mask_area_ratio: 0.05
+
+severity:
+  # Pixels inside the leaf but outside this healthy-green range count as affected.
+  healthy_hsv_lower: [35, 50, 40]
+  healthy_hsv_upper: [90, 255, 255]
+  # ratio < mild_max -> Mild; mild_max <= ratio <= moderate_max -> Moderate; else Severe.
+  mild_max: 0.15
+  moderate_max: 0.40
+
+features:
+  hue_bins: 8
+  glcm_distances: [1, 2]
+  glcm_angles_deg: [0, 45, 90, 135]
+  glcm_levels: 32
+  glcm_properties:
+    - contrast
+    - dissimilarity
+    - homogeneity
+    - energy
+    - correlation
+    - ASM
+  lbp_points: 8
+  lbp_radius: 1
+
+dummy:
+  images_per_class_per_crop: 20
+  image_size: 256
+
+# Reported by Usmani & Ahmad, JISEM 2025. Different dataset and class set.
+base_paper_accuracy_percent: 87.62
+base_paper_label: "Usmani & Ahmad 2025 (reported)"
+base_paper_note: "reported by base paper; different dataset/classes, indicative only"
