@@ -1,0 +1,16 @@
+key,value
+selector,anova
+classifier,decision_tree
+test_accuracy,1.0
+test_macro_precision,1.0
+test_macro_recall,1.0
+test_macro_f1,1.0
+cv_accuracy_mean,0.8801619433198379
+cv_accuracy_std,0.03537358892113812
+cv_accuracy,0.8802 +/- 0.0354
+k,20
+n_train,192
+n_test,48
+n_features_in,70
+n_features_selected,20
+data_source,real

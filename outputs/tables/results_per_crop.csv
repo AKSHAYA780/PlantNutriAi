@@ -1,0 +1,3 @@
+crop,n_test,accuracy,macro_precision,macro_recall,macro_f1,data_source
+banana,23,1.0,1.0,1.0,1.0,real
+coffee,25,1.0,1.0,1.0,1.0,real

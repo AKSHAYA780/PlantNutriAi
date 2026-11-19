@@ -1,0 +1,8 @@
+Class,Precision,Recall,F1
+Healthy,1.0,1.0,1.0
+Nitrogen,1.0,1.0,1.0
+Phosphorus,1.0,1.0,1.0
+Potassium,1.0,1.0,1.0
+Iron,1.0,1.0,1.0
+Magnesium,1.0,1.0,1.0
+Overall accuracy,,,1.0

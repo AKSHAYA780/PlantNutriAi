@@ -26,6 +26,26 @@ from src.common import (
 )
 
 
+def _alias_at_boundary(compact: str, pattern: str) -> bool:
+    """True when pattern occurs on underscore boundaries, not inside another token.
+
+    "n_def" is an alias for nitrogen, but it must not match the tail of "iron_def".
+    """
+    if not pattern:
+        return False
+    start = 0
+    while True:
+        index = compact.find(pattern, start)
+        if index < 0:
+            return False
+        end = index + len(pattern)
+        left_ok = index == 0 or compact[index - 1] == "_"
+        right_ok = end == len(compact) or compact[end] == "_"
+        if left_ok and right_ok:
+            return True
+        start = index + 1
+
+
 def canonical_class(folder_name: str, cfg: dict) -> str | None:
     """Map a raw class-folder name to a canonical deficiency label, or None."""
     compact = re.sub(r"[\s\-]+", "_", folder_name.strip().lower())
@@ -40,7 +60,7 @@ def canonical_class(folder_name: str, cfg: dict) -> str | None:
     # Longest alias wins so "magnesium" beats a shorter overlapping token.
     pairs.sort(key=lambda item: len(item[0]), reverse=True)
     for pattern, label in pairs:
-        if pattern and pattern in compact:
+        if _alias_at_boundary(compact, pattern):
             return label
     return None
 
@@ -178,10 +198,18 @@ def prepare_dataset(cfg: dict | None = None, allow_dummy: bool = True) -> pd.Dat
     cfg = cfg or load_config()
     set_seed(int(cfg["seed"]))
     raw_dir = path_from_key(cfg, "raw_dir")
+    marker = raw_dir / "DUMMY_MARKER.txt"
     source = "real"
     detail = f"Images loaded from {raw_dir.as_posix()}."
 
-    if not raw_has_images(raw_dir):
+    if marker.is_file():
+        source = "dummy"
+        detail = (
+            "DUMMY_MARKER.txt is present, so these images are synthetic. "
+            "DUMMY DATA - DO NOT REPORT."
+        )
+        print(DUMMY_BANNER)
+    elif not raw_has_images(raw_dir):
         if not allow_dummy:
             raise FileNotFoundError(f"No images under {raw_dir} and dummy generation is disabled.")
         print(DUMMY_BANNER)

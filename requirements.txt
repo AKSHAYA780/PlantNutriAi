@@ -1,0 +1,13 @@
+numpy
+pandas
+scikit-learn
+scikit-image
+opencv-python-headless
+xgboost
+matplotlib
+seaborn
+joblib
+pyyaml
+tqdm
+streamlit
+pytest

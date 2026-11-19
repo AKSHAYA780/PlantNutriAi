@@ -1,0 +1,17 @@
+data_source: real
+selector: anova
+classifier: decision_tree
+
+              precision    recall  f1-score   support
+
+     Healthy     1.0000    1.0000    1.0000         8
+        Iron     1.0000    1.0000    1.0000         4
+   Magnesium     1.0000    1.0000    1.0000         8
+    Nitrogen     1.0000    1.0000    1.0000        12
+  Phosphorus     1.0000    1.0000    1.0000         8
+   Potassium     1.0000    1.0000    1.0000         8
+
+    accuracy                         1.0000        48
+   macro avg     1.0000    1.0000    1.0000        48
+weighted avg     1.0000    1.0000    1.0000        48
+
